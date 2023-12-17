@@ -1,5 +1,3 @@
-# Update checks
-
 # semester-project-2
  Take skills learned over the past three semesters and create an auction website for Noroff.
  The javascript has been the main focus trying to implement best practice and ES6.
@@ -46,8 +44,14 @@ Stock Image is also taken as a free source and cut up to only get one character.
 
 # Collaborate
 
-Feel free to add 
+Feel free to add your own code and make a pull request
 
 # Style guide
 
 1. The project follows ES6
+2. Use Bootstrap 5
+3. Follow The pre-commit, and styling from package.json
+
+# Special thanks
+
+Thanks to my teachers and fellow students for following through these three semesters.
