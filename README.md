@@ -6,3 +6,6 @@
 # installation
 
 1. npm ci
+
+# feed from
+https://freefrontend.com/bootstrap-cards/
