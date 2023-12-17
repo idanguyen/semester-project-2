@@ -26,6 +26,27 @@ These links also contain links to footer and headers boostrap sources from onlin
 There are code snippets taken from the social media client from Noroff with slight modifications:
 https://github.com/NoroffFEU/social-media-client
 
+some direct examples here are:
+api/headers.js
+api/api-base.js
+api/login
+
+And mostly everything is inspired in API
+
+For event listeners it is also major inspirations and usage from https://github.com/NoroffFEU/social-media-client for just about every class
+
+some direct examples are functions such as:
+isLoggedin()
+
+whole of event-listeners/localstorage
+moved some functions around to have better correlation
+
+authentication listeners are also heavily inspired
+especially log out listeners and ui listeners
+
+The tests are also taken from the cirriculum for the previous module, can be seen in:
+https://content.noroff.dev/workflow/intro-to-testing.html
+
 There are utility functions that are taken from stackoverflow with slight modifications:
 sleep:
 https://stackoverflow.com/questions/65559244/what-is-the-resolve-function-in-the-promise-settimeout-best-practice
