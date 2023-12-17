@@ -55,3 +55,13 @@ Feel free to add your own code and make a pull request
 # Special thanks
 
 Thanks to my teachers and fellow students for following through these three semesters.
+
+# Links
+Trello:
+https://trello.com/invite/b/K8ITzvcI/ATTI5059c7e7f0c6957248698cb961519ba4286AE08F/semester-project-2
+
+Figma:
+https://www.figma.com/file/2wRxALl72WHTvkc1RH0Y4v/Everything-Auction?type=design&node-id=0%3A1&mode=design&t=v3imEpWxSvzwdc6P-1
+
+Netlify:
+https://deft-scone-04965e.netlify.app/index.html
