@@ -69,3 +69,19 @@ export async function getListing(id, flag = 'empty') {
     }
   }
 }
+
+export async function getSearch() {
+  let searchTerm = document.getElementById('search-bar').value;
+  console.log(searchTerm);
+  const response = await fetch(
+    `${urlString}auction/listings?_tag=${searchTerm}`,
+    {
+      headers: headers(),
+    },
+  );
+  if (response.ok) {
+    return await response.json();
+  }
+
+  throw new Error(response.statusText);
+}

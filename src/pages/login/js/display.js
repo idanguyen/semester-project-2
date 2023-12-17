@@ -11,7 +11,7 @@ export async function displayLogin() {
       <div class="row border rounded-5 p-3 shadow">
         <div
           class="col-md-6 rounded-4 d-flex justify-content-center flex-column"
-          style="background: #053b8d"
+          style="background: #005f73"
         >
         <img class="login" src="src/pages/login/images/login-image.jpg" alt="login-image">
         </div>

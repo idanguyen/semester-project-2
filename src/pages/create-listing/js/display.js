@@ -102,7 +102,7 @@ export async function displayCreateListing() {
                 id="register-listing-btn"
                 class="btn btn-lg btn-primary w-100 fs-6"
               >
-                Sign up
+                Create Listing
               </button>
             </div>
           </div>

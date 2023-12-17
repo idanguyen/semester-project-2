@@ -6,11 +6,11 @@ function createFooter() {
   let footer = `
     <br>
     <section class="">
-        <footer class="text-center text-white" style="background-color: #0a4275;">
+        <footer class="text-center text-white" style="background-color: #005f73;">
         <div class="container p-3">
             <section class="">
                 <p class="d-flex justify-content-center align-items-center">
-                    <span class="me-3">Vintage Auctions</span>
+                    <span class="me-3">Everything Auctions</span>
                 </p>
             </section>
         </div>

@@ -78,6 +78,11 @@ div [class^=col-] {
   object-fit: cover;
 }
 
+.logo {
+  text-align: center;
+  color: white;
+}
+
 .gradient-custom-2 {
   /* fallback for old browsers */
   background: #fff;

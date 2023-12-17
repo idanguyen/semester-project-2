@@ -19,11 +19,14 @@ export async function displayListings(displayAmount) {
     cards += createCard(listing);
   }
   cards += `
-  <button id="fwd-btn" class="card-text">Forward</button> 
-  <button id="bck-btn" class="card-text">Back</button>
-  </div>
 
   </div>
+  <div class="align-content-center">
+    <button id="bck-btn" class="btn btn-primary ">Back</button>
+    <button id="fwd-btn" class="btn btn-primary justify-content-end">Forward</button> 
+  </div>
+
+</div>
   `;
   addListeners();
 
@@ -31,22 +34,25 @@ export async function displayListings(displayAmount) {
 }
 
 function createCard(listing) {
+  let cost = 0;
+  try {
+    if (listing.bids[0].amount != null) {
+      cost = listing.bids[listing.bids.length - 1].amount;
+    }
+  } catch (error) {
+    alert(error);
+  }
   let card = `
-    <div class="col-md-3 col-sm-6">
-      <div class="card card-block" onclick="window.location='listing.html?listing=${
-        listing.id
-      }';">
-        <h4 class="card-title text-right">Current Bid: ${
-          listing.bids[listing.bids.length - 1].amount
-        }</h4>
+    <div class="col-md-3 col-sm-6 ">
+      <div class="card card-block" onclick="window.location='listing.html?listing=${listing.id}';">
+        
         <img src=${listing.media[0]} alt="${listing.id}>
-        <h5 class="card-title mt-3 mb-3">${listing.title}</h5>
-        <p class="card-text">${listing.endsAt}</p> 
+        <p class="d-flex justify-content-center">${listing.title}</p>
+
+        <h3 class="card-title text-right">Current Bid: ${cost}</h3>
+        <p class="card-text">Listing ends at: ${listing.endsAt}</p> 
       </div>
-      <div class="card" onclick="window.location='listing.html?listing=${
-        listing.id
-      }';">
-        <button class="card-text">View</button> 
+      <div class="card" onclick="window.location='listing.html?listing=${listing.id}';">
       </div>
     </div>
 `;
