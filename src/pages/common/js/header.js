@@ -25,16 +25,16 @@ function createNavigation() {
     <div class="container-fluid">`;
   if (isLoggedIn()) {
     navigation += `
-        <a id="log-out-btn" class="navbar-brand" style="cursor:pointer" href="index.html">Log Out</a>`;
+        <a id="log-out-btn" class="navbar-brand btn" style="cursor:pointer" href="index.html">Log Out</a>`;
   } else {
     navigation += `
-        <a id="log-in-btn" class="navbar-brand" style="cursor:pointer" href="login.html">Log In</a>`;
+        <a id="log-in-btn" class="navbar-brand btn" style="cursor:pointer" href="login.html">Log In</a>`;
   }
   navigation += `
         <div class="collapse navbar-collapse" id="navbarContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a id="home-btn-header" class="nav-link active" >Home</a>
+                    <a id="home-btn-header" class="btn nav-link active" style="cursor:pointer" >Home</a>
                 </li>
                 <li class="nav-item">
                     <div class="container-fluid ">

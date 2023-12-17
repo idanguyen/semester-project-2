@@ -49,7 +49,7 @@ async function loggedInDisplay() {
                   />
             </div>
             <br>
-            <button id="confirm-btn-pic" class="btn">Confirm</button>
+            <button id="confirm-btn-pic" class="btn btn-outline-dark">Confirm</button>
           </div>
         </div>
       </div>

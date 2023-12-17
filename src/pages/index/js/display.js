@@ -4,6 +4,7 @@ import { sleep } from '../../../js/utils/sleep.js';
 import { isLoggedIn } from '../../../js/localstorage/state.js';
 
 let index = 0;
+let listingsContainer = document.querySelector('.listingsContainer');
 
 export async function displayListings(displayAmount) {
   isLoggedIn();
@@ -42,9 +43,6 @@ function createCard(listing) {
         <h5 class="card-title mt-3 mb-3">${listing.title}</h5>
         <p class="card-text">${listing.endsAt}</p> 
       </div>
-      <div class="card">
-        <button class="card-text">Bid</button> 
-      </div>
       <div class="card" onclick="window.location='listing.html?listing=${
         listing.id
       }';">
@@ -62,26 +60,26 @@ function addListeners() {
   });
 }
 
-function back() {
+async function back() {
   updateDisplay('back');
+  listingsContainer.innerHTML = await displayListings(index);
 }
 
-function forward() {
+async function forward() {
   updateDisplay('forward');
+  listingsContainer.innerHTML = await displayListings(index);
 }
 
 async function updateDisplay(change) {
   switch (change) {
     case 'forward': {
       let newFwdItems = index + 8;
-      await displayListings(checkRange(newFwdItems));
-      console.log(index);
+      index = checkRange(newFwdItems);
       break;
     }
     case 'back': {
       let newBckItems = index - 8;
-      await displayListings(checkRange(newBckItems));
-      console.log(index);
+      index = checkRange(newBckItems);
       break;
     }
     default: {

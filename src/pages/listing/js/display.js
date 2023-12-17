@@ -1,14 +1,21 @@
 import { getParameter } from '../../../js/utils/parameter-management.js';
 import { getListing } from '../../../js/api/listings/get.js';
+import { sleep } from '../../../js/utils/sleep.js';
+import { bid } from '../../../js/api/listings/post.js';
 
 export async function displayListing() {
   let id = getParameter('listing');
   let listing = await getListing(id, 'bids');
   let card = createListing(listing);
+  addListeners();
   return card;
 }
 
 function createListing(listing) {
+  let cost = 0;
+  if (listing.bids[0].amount != null) {
+    cost = listing.bids[listing.bids.length - 1].amount;
+  }
   let displayListings = `
       <section class=" h-100 gradient-custom-2">
 
@@ -33,7 +40,7 @@ function createListing(listing) {
           <hr class="my-0" />
           <div class="card-body pb-0">
             <div class="d-flex justify-content-between">
-              <p>${listing.bids[listing.bids.length - 1].amount} NOK</p>
+              <p>${cost} NOK</p>
             </div>
             <p class="small text-muted">${listing.bids.length} Bids</p>
           </div>
@@ -43,9 +50,11 @@ function createListing(listing) {
           <div class="card-body">
             <div class="d-flex justify-content-between align-items-center pb-2 mb-1">
               <input id="bid-amount" class="form-control" type="text" placeholder="Bid">
-              <button type="button" class="btn btn-primary">Bid</button>
+              <button id="bid-btn" type="button" class="btn btn-primary">Bid</button>
             </div>
           </div>
+          <p id="error-bids-text" style="color:red;"></p>
+
 
 
         </div>
@@ -56,4 +65,11 @@ function createListing(listing) {
 `;
   return displayListings;
 }
+
+function addListeners() {
+  sleep(1000).then(() => {
+    document.getElementById('bid-btn').addEventListener('click', bid);
+  });
+}
+
 //https://mdbootstrap.com/docs/standard/extended/product-cards/
