@@ -8,6 +8,7 @@ import {
 } from '../../../js/event-listeners/profiles/update.js';
 import { setAvatar } from '../../../js/utils/avatar.js';
 import { sleep } from '../../../js/utils/sleep.js';
+import { getLogo } from '../../../js/utils/logo.js';
 import { getSearch } from '../../../js/api/listings/get.js';
 
 export function displayHeader() {
@@ -19,76 +20,70 @@ export function displayHeader() {
 
 function createNavigation() {
   let avatar = setAvatar();
-  let navigation = `
+  let logo = getLogo();
+  let newNav = `
+
+<nav class="navbar navbar-expand-lg navbar-light bg-primary">
+  <div class="container-fluid">
+    <nav class="navbar navbar-light bg-primary">
+  <div class="container">
+    <a class="navbar-brand" href="index.html">
+      <img src="${logo}" alt="header-logo" width="25" height="24">
+    </a>
   </div>
-    </nav>
-    <nav class="navbar navbar-expand-lg navbar-light bg-primary">
-    <div class="container-fluid">`;
-  if (isLoggedIn()) {
-    navigation += `
-        <a id="log-out-btn" class="navbar-brand btn" style="cursor:pointer color:white;" href="index.html" >Log Out</a>`;
-  } else {
-    navigation += `
-        <a id="log-in-btn" class="navbar-brand btn" style="cursor:pointer color:white;" href="login.html">Log In</a>`;
-  }
-  navigation += `
-        <div class="collapse navbar-collapse" id="navbarContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                    <a id="home-btn-header" class="btn nav-link active" style="cursor:pointer" >Home</a>
-                </li>
-                <li class="nav-item">
-                    <div class="container-fluid ">
-                    <form class="d-flex input-group w-auto">
-                    <input
-                        id="search-bar"
-                        type="search"
-                        class="form-control rounded"
-                        placeholder="Search"
-                        aria-label="Search"
-                        aria-describedby="search-addon"
-                    />
-                    <span class="input-group-text text-white border-0" id="search-addon">
-                    <button id="search-btn" class="btn btn-primary" href="index.html?search=">S</button>
-                    </span>
-                    </form>
-                </li>
-                                    <h1 class="logo">Everything Auctions</h1>
-
-            </ul>
-            <ul class="navbar-nav">
-
-
-                <li class="nav-item">
-                    <a type="button" href="index.html" class="btn btn-outline-dark" data-mdb-ripple-color="dark" style="cursor:pointer" href="create-listing.html">Create Listing</a>
-                </li>
-                <li class="nav-item dropdown">
-                    <img class="rounded-circle" src="${avatar}" alt="stock-profile" onclick="window.location='profile.html'">
-                </li>
-            </ul>
-        </div>
-    </div>
 </nav>
-  `;
-  return navigation;
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <form class="d-flex">
+            <input id="search" class="form-control me-2" type="search" placeholder="Search" aria-label="Search" list="search-suggestions" >
+            <datalist id="search-suggestions">
+              <option value="JavaScript">
+              <option value="CSS">
+              <option value="Accessibility">
+              <option value="Web Design">
+            </datalist>
+          </form>
+        </li>
+      </ul>`;
+  if (isLoggedIn()) {
+    newNav += `
+    <div>
+        <a id="create-listing-btn" class="btn btn-primary" style="color:white; cursor:pointer"  href="create-listing.html" >Create Listing</a>
+        <a id="log-out-btn" class="btn btn-primary " style="color:white; cursor:pointer" href="index.html" >Log Out</a>
+    </div>`;
+  } else {
+    newNav += `
+        <a id="log-in-btn" class="btn btn-primary pull-right" style="color:white; cursor:pointer" href="login.html">Log In</a>`;
+  }
+
+  newNav += `
+      <div class="img-avatar">
+        <img  src="${avatar}" alt="stock-profile" onclick="window.location='profile.html'" class="img-avatar rounded-circle">
+      </div>
+    </div>
+  </div>
+</nav>
+`;
+  return newNav;
 }
 
 function addListeners() {
   sleep(1000).then(() => {
+    document.getElementById('search').addEventListener('search', updatesearch);
+
     goToLoginHeaderListener();
     logoutHeaderListener();
     goHomeListener('home-btn-header');
     editProfileRedirectListener();
     updatePictureListener();
-    document
-      .getElementById('search-btn')
-      .addEventListener('click', updateSearch);
   });
 }
 
 //https://www.freepik.com/free-vector/hand-drawn-different-people-icons-pack_17893869.htm#page=3&query=avatar&position=0&from_view=keyword&track=sph&uuid=42933467-2f40-4499-a897-c0b0da3c4784
 //https://stackoverflow.com/questions/41513463/bootstrap-align-navbar-items-to-the-right
 
-function updateSearch() {
-  location.href = 'index.html?' + document.getElementById('search-bar').value;
+function updatesearch() {
+  location.href =
+    'index.html?search=' + document.getElementById('search').value;
 }

@@ -13,8 +13,12 @@ export async function displayListing() {
 
 function createListing(listing) {
   let cost = 0;
-  if (listing.bids[0].amount != null) {
-    cost = listing.bids[listing.bids.length - 1].amount;
+  try {
+    if (listing.bids[0].amount != null) {
+      cost = listing.bids[listing.bids.length - 1].amount;
+    }
+  } catch (error) {
+    console.log(error);
   }
   let displayListings = `
       <section class=" h-100 gradient-custom-2">

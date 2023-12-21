@@ -7,15 +7,49 @@ import { headers } from '../headers.js';
  * @function
  * @returns {[JSON]} Returns all listings in JSON format in an array
  */
-export async function getListings() {
-  const response = await fetch(`${urlString}auction/listings`, {
-    headers: headers(),
-  });
-  if (response.ok) {
-    return await response.json();
-  }
+export async function getListings(flag = 'empty', search = '') {
+  switch (flag) {
+    case 'empty': {
+      const response = await fetch(
+        `${urlString}auction/listings?_tag=` + search,
+        {
+          headers: headers(),
+        },
+      );
+      if (response.ok) {
+        return await response.json();
+      }
+      break;
+    }
 
-  throw new Error(response.statusText);
+    case 'seller': {
+      const response = await fetch(
+        `${urlString}auction/listings?_seller=true&_tag=` + search,
+        {
+          headers: headers(),
+        },
+      );
+      if (response.ok) {
+        return await response.json();
+      }
+      break;
+    }
+    case 'bids': {
+      const response = await fetch(
+        `${urlString}auction/listings?_bids=true&_tag=` + search,
+        {
+          headers: headers(),
+        },
+      );
+      if (response.ok) {
+        return await response.json();
+      }
+      break;
+    }
+    default: {
+      throw new Error('Invalid flag');
+    }
+  }
 }
 
 /**

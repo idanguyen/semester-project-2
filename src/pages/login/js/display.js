@@ -6,18 +6,17 @@ export async function displayLogin() {
   <section class=" h-100 gradient-custom-2">
   <div class="container d-flex justify-content-center align-items-center min-vh-100">
     <div class="row">
-      <div class="col-md-12">
-      </div>
+      <div class="col-md-12 justify-content-center">
+     
       <div class="row border rounded-5 p-3 shadow">
         <div
-          class="col-md-6 rounded-4 d-flex justify-content-center flex-column"
-          style="background: #005f73"
+          class="col-md-6 rounded-4 d-flex flex-column "
         >
-        <img class="login" src="src/pages/login/images/login-image.jpg" alt="login-image">
+        <img class="rounded-5 login-image" src="src/pages/login/images/login-image.jpg" alt="login-image">
         </div>
-        <div class="col-md-6 login-box">
-          <div class="row justify-content-center">
-            <div class="input-group mb-3">
+        <div class="col-md-6 login-box container d-flex justify-content-center align-items-center">
+          <div class="row">
+            <div class="input-group mb-3 ">
               <input
                 type="email"
                 id="email-lgn"
@@ -58,7 +57,8 @@ export async function displayLogin() {
               </button>
             </div>
           </div>
-        </div>
+          </div>
+         </div>      
       </div>
     </div>
   </div>

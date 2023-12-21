@@ -4,8 +4,32 @@
 }
 
 img {
-  height: 150px;
+  height: 100%;
   width: 100%;
+}
+
+.img-card {
+  height: 300px;
+  padding: 10px;
+  width: auto;
+  object-fit: none;
+}
+
+.img-avatar {
+  height: 100px;
+  width: 100px;
+  object-fit: cover;
+}
+
+.login-image {
+  height: 600px;
+  width: 100%;
+  object-fit: cover;
+}
+
+.text-card {
+  font-size: medium;
+  justify-content: center;
 }
 
 div [class^=col-] {
@@ -13,30 +37,12 @@ div [class^=col-] {
   padding-right: 5px;
 }
 
-.card {
+.card-transition {
   transition: 0.5s;
   cursor: pointer;
 }
 
-.card-title {
-  font-size: 15px;
-  transition: 1s;
-  cursor: pointer;
-}
-
-.card-title i {
-  font-size: 15px;
-  transition: 1s;
-  cursor: pointer;
-  color: #ffa710;
-}
-
-.card-title i:hover {
-  transform: scale(1.25) rotate(100deg);
-  color: #18d4ca;
-}
-
-.card:hover {
+.card-transition:hover {
   transform: scale(1.05);
   box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.3);
 }
@@ -45,8 +51,8 @@ div [class^=col-] {
   height: 80px;
 }
 
-.card::before,
-.card::after {
+.card-transition::before,
+.card-transition::after {
   position: absolute;
   top: 0;
   right: 0;
@@ -54,23 +60,22 @@ div [class^=col-] {
   left: 0;
   transform: scale3d(0, 0, 1);
   transition: transform 0.3s ease-out 0s;
-  background: rgba(255, 255, 255, 0.1);
   content: "";
   pointer-events: none;
 }
 
-.card::before {
+.card-transition::before {
   transform-origin: left top;
 }
 
-.card::after {
+.card-transition::after {
   transform-origin: right bottom;
 }
 
-.card:hover::before,
-.card:hover::after,
-.card:focus::before,
-.card:focus::after {
+.card-transition:hover::before,
+.card-transition:hover::after,
+.card-transition:focus::before,
+.card-transition:focus::after {
   transform: scale3d(1, 1, 1);
 }
 

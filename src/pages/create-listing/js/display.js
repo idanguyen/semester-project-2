@@ -18,11 +18,10 @@ export async function displayCreateListing() {
       <div class="row border rounded-5 p-3 shadow">
         <div
           class="col-md-6 rounded-4 d-flex justify-content-center align-items-center flex-column"
-          style="background: #005F73"
         >
-        <img class="login" src="src/pages/login/images/login-image.jpg" alt="login-image">
+        <img class="rounded-5 login-image" src="src/pages/login/images/login-image.jpg" alt="login-image">
         </div>
-        <div class="col-md-6 login-box">
+        <div class="col-md-6 login-box container d-flex justify-content-center align-items-center">
           <div class="row justify-content-center">
             <div class="input-group mb-3">
               <input

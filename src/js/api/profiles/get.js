@@ -28,7 +28,7 @@ export async function getProfile(flag = 'empty') {
     }
     case 'listings': {
       const listingsResponse = await fetch(
-        `${apiBase}auction/profiles/${profile.name}/?_listings=true`,
+        `${apiBase}auction/profiles/${profile.name}/listings`,
         {
           headers: headers(),
         },
