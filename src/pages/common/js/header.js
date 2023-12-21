@@ -9,7 +9,6 @@ import {
 import { setAvatar } from '../../../js/utils/avatar.js';
 import { sleep } from '../../../js/utils/sleep.js';
 import { getLogo } from '../../../js/utils/logo.js';
-import { getSearch } from '../../../js/api/listings/get.js';
 
 export function displayHeader() {
   updateLoginHTML();
@@ -38,10 +37,10 @@ function createNavigation() {
           <form class="d-flex">
             <input id="search" class="form-control me-2" type="search" placeholder="Search" aria-label="Search" list="search-suggestions" >
             <datalist id="search-suggestions">
-              <option value="JavaScript">
-              <option value="CSS">
-              <option value="Accessibility">
-              <option value="Web Design">
+              <option value="Christmas">
+              <option value="Dog">
+              <option value="Car">
+              <option value="Cat">
             </datalist>
           </form>
         </li>
@@ -85,5 +84,6 @@ function addListeners() {
 
 function updatesearch() {
   location.href =
-    'index.html?search=' + document.getElementById('search').value;
+    'index.html?search=' +
+    document.getElementById('search').value.toLowerCase();
 }

@@ -9,10 +9,11 @@ export async function postListing() {
   let tags = [document.getElementById('tags-cr-lst').value];
   let media = [document.getElementById('media-cr-lst').value];
   let endsAt = new Date(
-    document.getElementById('endsyear-cr-lst').value,
-    document.getElementById('endsmonth-cr-lst').value,
-    document.getElementById('endsday-cr-lst').value,
+    Number(document.getElementById('endsyear-cr-lst').value),
+    Number(document.getElementById('endsmonth-cr-lst').value - 1),
+    Number(document.getElementById('endsday-cr-lst').value),
   );
+  console.log(endsAt);
 
   const response = await fetch(`${apiBase}auction/listings`, {
     method: 'post',

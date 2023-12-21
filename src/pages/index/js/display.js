@@ -2,7 +2,7 @@ import { getListings } from '../../../js/api/listings/get.js';
 import { sleep } from '../../../js/utils/sleep.js';
 import { isLoggedIn } from '../../../js/localstorage/state.js';
 import { createImage } from '../../../js/utils/image.js';
-import { calculateTimeLeft } from '../../../js/utils/time.js';
+import { getRemaingAuctionTime } from '../../../js/utils/time.js';
 import { getParameter } from '../../../js/utils/parameter-management.js';
 import { checkTitle } from '../../../js/utils/card.js';
 
@@ -35,7 +35,9 @@ export async function displayListings(displayAmount) {
   <div class="container mt-3 mb-3">
   <div class="row">`;
   for (let i = index - displayAmount; i < index; i++) {
-    cards += createCard(listings[i]);
+    if (listings[i]) {
+      cards += createCard(listings[i]);
+    }
   }
   cards += `
 
@@ -56,7 +58,10 @@ function createCard(listing) {
   let cost = 0;
   console.log(listing);
   let image = createImage(listing.media[0]);
-  let timeLeft = calculateTimeLeft(listing.endsAt);
+  let timeLeft = getRemaingAuctionTime(
+    listing.endsAt,
+    `timer-index-${listing.id}`,
+  );
   let title = checkTitle(listing.title);
   try {
     if (listing.bids[0].amount != null) {
@@ -74,7 +79,7 @@ function createCard(listing) {
       <h3 class="d-flex justify-content-center">${title}</h3>
       <br>
       <p class="d-flex justify-content-center">${cost} NOK</p>
-      <p class="d-flex card-text justify-content-center">${timeLeft}</p> 
+      <p id="timer-index-${listing.id}"class="d-flex card-text justify-content-center">${timeLeft}</p> 
     </div>
   </div>
 `;
