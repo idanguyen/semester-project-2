@@ -55,6 +55,8 @@ https://stackoverflow.com/questions/65559244/what-is-the-resolve-function-in-the
 strings:
 https://stackoverflow.com/questions/2167602/optimum-way-to-compare-strings-in-javascript from Gumbo's answer
 
+and more specified in the js files.
+
 getParameter is a common function used throught different projects for me the past two years:
 
 It is also tried to follow a javascript structure that fits with ES6
