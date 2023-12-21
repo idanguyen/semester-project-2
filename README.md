@@ -60,9 +60,7 @@ getParameter is a common function used throught different projects for me the pa
 It is also tried to follow a javascript structure that fits with ES6
 
 ## images free from internet
-https://images.pexels.com/photos/18939486/pexels-photo-18939486/free-photo-of-flowers.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load
-https://www.freepik.com/free-vector/hand-drawn-different-people-icons-pack_17893869.htm#page=3&query=avatar&position=0&from_view=keyword&track=sph&uuid=42933467-2f40-4499-a897-c0b0da3c4784
-Stock Image is also taken as a free source and cut up to only get one character.
+Images are taken from free sources on the internet. If anyone has any complaints, please let me know.
 
 # Collaborate
 
@@ -73,6 +71,7 @@ Feel free to add your own code and make a pull request
 1. The project follows ES6
 2. Use Bootstrap 5
 3. Follow The pre-commit, and styling from package.json
+4. Look at the Style Sheet in Figma
 
 # Special thanks
 
