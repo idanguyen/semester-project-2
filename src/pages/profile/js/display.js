@@ -30,9 +30,7 @@ function getMedia(listings, index) {
 async function loggedInDisplay() {
   let profile = await getProfile();
   let avatar = setAvatar();
-
   let listings = await getProfile('listings');
-
   let display = `
 <section class="h-100 gradient-custom-2">
   <div class="container py-5 h-100">
@@ -72,6 +70,10 @@ async function loggedInDisplay() {
             </div>
           </div>
           <br>
+          <div class="d-flex justify-content-between align-items-center mb-4">
+              <p class="lead fw-normal mb-0 p-3">Recent Listings</p>
+              <p class="mb-0 p-3"><a href="index.html?profile=${profile.name}" class="text-muted">Show all</a></p>
+          </div>
 `;
 
   display += addRecentListings(listings);
@@ -101,93 +103,81 @@ function addRecentListings(listings) {
     return '';
   } else if (length === 1) {
     return `
-          <div class="d-flex justify-content-between align-items-center mb-4">
-              <p class="lead fw-normal mb-0">Recent photos</p>
-              <p class="mb-0"><a href="#!" class="text-muted">Show all</a></p>
-            </div>
             <div class="row g-2">
-              <div class="col mb-2 card-transition">
-                ${getMedia(listings, 1)}
+              <div class="img-card col mb-2 card-transition" onclick="window.location='listing.html?listing=${
+                listings[0].id
+              }';">
+                ${getMedia(listings, length)}
               </div>
-              <div class="col mb-2 card-transition">
-                <img src="${image}" alt="image 1" class="w-100 "></img>
-              </div>
-            </div>
-            <div class="row g-2">
-              <div class="col card-transition">
-                <img src="${image}" alt="image 1" class="w-100 "></img>
-              </div>
-              <div class="col card-transition">
+              <div class="img-card col mb-2">
                 <img src="${image}" alt="image 1" class="w-100 "></img>
               </div>
             </div>
 `;
   } else if (length === 2) {
     return `
-          <div class="d-flex justify-content-between align-items-center mb-4">
-              <p class="lead fw-normal mb-0">Recent photos</p>
-              <p class="mb-0"><a href="#!" class="text-muted">Show all</a></p>
-            </div>
             <div class="row g-2">
-              <div class="col mb-2 card-transition">
-                ${getMedia(listings, 1)}
+              <div class="img-card col mb-2 card-transition" onclick="window.location='listing.html?listing=${
+                listings[0].id
+              }';">
+                ${getMedia(listings, length)}
               </div>
-              <div class="col mb-2 card-transition">
-                ${getMedia(listings, 2)}
-              </div>
-            </div>
-            <div class="row g-2">
-              <div class="col card-transition">
-                <img src="${image}" alt="image 1" class="w-100 "></img>
-              </div>
-              <div class="col card-transition">
-                <img src="${image}" alt="image 1" class="w-100 "></img>
+              <div class="img-card col mb-2 card-transition" onclick="window.location='listing.html?listing=${
+                listings[1].id
+              }';">
+                ${getMedia(listings, length - 1)}
               </div>
             </div>
 `;
   } else if (length === 3) {
     return `
-          <div class="d-flex justify-content-between align-items-center mb-4">
-              <p class="lead fw-normal mb-0">Recent photos</p>
-              <p class="mb-0"><a href="#!" class="text-muted">Show all</a></p>
+            <div class="row g-2">
+              <div class="img-card col mb-2 card-transition" onclick="window.location='listing.html?listing=${
+                listings[0].id
+              }';">
+                ${getMedia(listings, length)}
+              </div>
+              <div class="img-card col mb-2 card-transition" onclick="window.location='listing.html?listing=${
+                listings[1].id
+              }';">
+                ${getMedia(listings, length - 1)}
+              </div>
             </div>
             <div class="row g-2">
-              <div class="col mb-2 card-transition">
-                ${getMedia(listings, 1)}
+              <div class="img-card col card-transition" onclick="window.location='listing.html?listing=${
+                listings[2].id
+              }';">
+                ${getMedia(listings, length - 2)}
               </div>
-              <div class="col mb-2 card-transition">
-                ${getMedia(listings, 2)}
-              </div>
-            </div>
-            <div class="row g-2">
-              <div class="col card-transition">
-                ${getMedia(listings, 3)}
-              </div>
-              <div class="col card-transition">
+              <div class="img-card col">
                 <img src="${image}" alt="image 1" class="w-100 "></img>
               </div>
             </div>
 `;
   } else {
     return `
-          <div class="d-flex justify-content-between align-items-center mb-4">
-              <p class="lead fw-normal mb-0">Recent photos</p>
-              <p class="mb-0"><a href="#!" class="text-muted">Show all</a></p>
+            <div class="row g-2">
+              <div class="img-card col mb-2 card-transition" onclick="window.location='listing.html?listing=${
+                listings[0].id
+              }';">
+                ${getMedia(listings, length)}
+              </div>
+              <div class="img-card col mb-2 card-transition" onclick="window.location='listing.html?listing=${
+                listings[1].id
+              }';">
+                ${getMedia(listings, length - 1)}
+              </div>
             </div>
             <div class="row g-2">
-              <div class="col mb-2 card-transition">
-                ${getMedia(listings, 1)}
+              <div class="img-card col card-transition" onclick="window.location='listing.html?listing=${
+                listings[2].id
+              }';">
+                ${getMedia(listings, length - 2)}
               </div>
-              <div class="col mb-2 card-transition">
-                ${getMedia(listings, 2)}
-              </div>
-            </div>
-            <div class="row g-2">
-              <div class="col card-transition">
-                ${getMedia(listings, 3)}
-              </div>
-              <div class="col card-transition">
-                ${getMedia(listings, 4)}
+              <div class="img-card col card-transition" onclick="window.location='listing.html?listing=${
+                listings[3].id
+              }';">
+                ${getMedia(listings, length - 3)}
               </div>
             </div>
 `;

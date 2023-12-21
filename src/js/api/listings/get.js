@@ -7,15 +7,18 @@ import { headers } from '../headers.js';
  * @function
  * @returns {[JSON]} Returns all listings in JSON format in an array
  */
-export async function getListings(flag = 'empty', search = '') {
+export async function getListings(flag = 'empty', search = '', profile = '') {
+  let url = '';
   switch (flag) {
     case 'empty': {
-      const response = await fetch(
-        `${urlString}auction/listings?_tag=` + search,
-        {
-          headers: headers(),
-        },
-      );
+      if (profile) {
+        url = `${urlString}auction/profiles/${profile}/listings?_tag=${search}`;
+      } else {
+        url = `${urlString}auction/listings?_tag=${search}&_active=true`;
+      }
+      const response = await fetch(url, {
+        headers: headers(),
+      });
       if (response.ok) {
         return await response.json();
       }
@@ -23,24 +26,28 @@ export async function getListings(flag = 'empty', search = '') {
     }
 
     case 'seller': {
-      const response = await fetch(
-        `${urlString}auction/listings?_seller=true&_tag=` + search,
-        {
-          headers: headers(),
-        },
-      );
+      if (profile) {
+        url = `${urlString}auction/profiles/${profile}/listings?_seller=true&_tag=${search}`;
+      } else {
+        url = `${urlString}auction/listings?_seller=true&_tag=${search}&_active=true`;
+      }
+      const response = await fetch(url, {
+        headers: headers(),
+      });
       if (response.ok) {
         return await response.json();
       }
       break;
     }
     case 'bids': {
-      const response = await fetch(
-        `${urlString}auction/listings?_bids=true&_tag=` + search,
-        {
-          headers: headers(),
-        },
-      );
+      if (profile) {
+        url = `${urlString}auction/profiles/${profile}/listings?_seller=true&_tag=${search}`;
+      } else {
+        url = `${urlString}auction/listings?_bids=true&_tag=${search}&_active=true`;
+      }
+      const response = await fetch(url, {
+        headers: headers(),
+      });
       if (response.ok) {
         return await response.json();
       }

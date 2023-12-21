@@ -15,7 +15,11 @@ async function getListingsForDisplay() {
   if (getParameter('search')) {
     search = getParameter('search');
   }
-  let listingList = await getListings('bids', search);
+  let profile = '';
+  if (getParameter('profile')) {
+    profile = getParameter('profile');
+  }
+  let listingList = await getListings('bids', search, profile);
   if (listingList.length === 0) {
     alert('No results on search term: ' + search + ' , returning to main page');
     location.href = 'index.html';
@@ -50,6 +54,7 @@ export async function displayListings(displayAmount) {
 
 function createCard(listing) {
   let cost = 0;
+  console.log(listing);
   let image = createImage(listing.media[0]);
   let timeLeft = calculateTimeLeft(listing.endsAt);
   let title = checkTitle(listing.title);
@@ -70,8 +75,6 @@ function createCard(listing) {
       <br>
       <p class="d-flex justify-content-center">${cost} NOK</p>
       <p class="d-flex card-text justify-content-center">${timeLeft}</p> 
-    </div>
-    <div class="" onclick="window.location='listing.html?listing=${listing.id}';">
     </div>
   </div>
 `;

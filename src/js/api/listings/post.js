@@ -14,20 +14,6 @@ export async function postListing() {
     document.getElementById('endsday-cr-lst').value,
   );
 
-  if (stringCompare(description.toString(), 'description')) {
-    description = 'no description';
-  }
-
-  if (stringCompare(tags.toString(), 'tags')) {
-    tags = ['none'];
-  }
-
-  if (stringCompare(media.toString(), 'media')) {
-    media = [
-      'https://images.pexels.com/photos/18939486/pexels-photo-18939486/free-photo-of-flowers.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load',
-    ];
-  }
-
   const response = await fetch(`${apiBase}auction/listings`, {
     method: 'post',
     body: JSON.stringify({ title, description, tags, media, endsAt }),
@@ -36,7 +22,7 @@ export async function postListing() {
 
   if (response.ok) {
     const lisitng = await response.json();
-    console.log(lisitng.id);
+    location.href = 'listing.html?listing=' + lisitng.id;
     return lisitng;
   }
   let error = await response.json();
@@ -61,6 +47,8 @@ export async function bid() {
 
   if (response.ok) {
     const lisitng = await response.json();
+    location.reload();
+
     return lisitng;
   }
   //let error = document.getElementById('error-bids-text');

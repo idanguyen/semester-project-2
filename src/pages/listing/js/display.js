@@ -2,6 +2,12 @@ import { getParameter } from '../../../js/utils/parameter-management.js';
 import { getListing } from '../../../js/api/listings/get.js';
 import { sleep } from '../../../js/utils/sleep.js';
 import { bid } from '../../../js/api/listings/post.js';
+import { deleteListing } from '../../../js/api/listings/delete.js';
+
+async function deleteFunction() {
+  let id = getParameter('listing');
+  deleteListing(id);
+}
 
 export async function displayListing() {
   let id = getParameter('listing');
@@ -21,8 +27,7 @@ function createListing(listing) {
     console.log(error);
   }
   let displayListings = `
-      <section class=" h-100 gradient-custom-2">
-
+  <section class=" h-100 gradient-custom-2">
   <div class="container py-5">
     <div class="row justify-content-center">
       <div class="col-md-8 col-lg-6 col-xl-4">
@@ -58,13 +63,11 @@ function createListing(listing) {
             </div>
           </div>
           <p id="error-bids-text" style="color:red;"></p>
-
-
-
         </div>
       </div>
     </div>
   </div>
+  <button id="del-btn">delete</button>
 </section>
 `;
   return displayListings;
@@ -73,6 +76,9 @@ function createListing(listing) {
 function addListeners() {
   sleep(1000).then(() => {
     document.getElementById('bid-btn').addEventListener('click', bid);
+    document
+      .getElementById('del-btn')
+      .addEventListener('click', deleteFunction);
   });
 }
 
