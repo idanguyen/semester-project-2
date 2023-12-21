@@ -1,6 +1,10 @@
 import { updateLoginHTML } from '../../localstorage/state.js';
 import { removeItem } from '../../localstorage/remove-item.js';
 
+/**
+ * This creates the listener for the logout button.
+ * @function
+ */
 export function logoutHeaderListener() {
   let logoutBtn = document.getElementById('log-out-btn');
   if (logoutBtn) {
@@ -8,6 +12,10 @@ export function logoutHeaderListener() {
   }
 }
 
+/**
+ * This is the functionality to make the user log out.
+ * @function
+ */
 export function logoutHeader() {
   try {
     removeItem('profile');

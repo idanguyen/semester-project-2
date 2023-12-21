@@ -1,9 +1,21 @@
 import { registerUserListener } from '../../../js/event-listeners/authentication/register.js';
 
+/**
+ * Displays the pane to register a user.
+ * Source: This was also used in my social media client javascript task
+ * @function
+ * @returns {string} HTML element for the displayContainer.
+ */
 export async function displayCreateUser() {
   return await createCreateUser();
 }
 
+/**
+ * Creates the pane to register a user.
+ * Source: This was also used in my social media client javascript task
+ * @function
+ * @returns {string} HTML element for the displayContainer.
+ */
 async function createCreateUser() {
   let display = `
   <div class="container d-flex justify-content-center align-items-center min-vh-100">
@@ -75,6 +87,10 @@ async function createCreateUser() {
   return display;
 }
 
+/**
+ * The function adds actionlisteners to the HTML elements
+ * @function
+ */
 async function addListeners() {
   window.addEventListener('DOMContentLoaded', (event) => {
     registerUserListener();

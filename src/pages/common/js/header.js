@@ -10,6 +10,13 @@ import { setAvatar } from '../../../js/utils/avatar.js';
 import { sleep } from '../../../js/utils/sleep.js';
 import { getLogo } from '../../../js/utils/logo.js';
 
+/**
+ * The function displays the header created in another function
+ * Sources: There are several different sources used for this header, with this source being vital : https://www.shecodes.io/athena/36478-how-to-create-a-search-input-and-button-in-javascript
+ * others: https://stackoverflow.com/questions/41513463/bootstrap-align-navbar-items-to-the-right
+ * @function
+ * @returns {string} Returns the HTML code for the footer
+ */
 export function displayHeader() {
   updateLoginHTML();
   let display = createNavigation();
@@ -17,6 +24,13 @@ export function displayHeader() {
   return display;
 }
 
+/**
+ * The function creates the header and makes it into a html string.
+ * Sources: There are several different sources used for this header, with this source being vital : https://www.shecodes.io/athena/36478-how-to-create-a-search-input-and-button-in-javascript
+ * others: https://stackoverflow.com/questions/41513463/bootstrap-align-navbar-items-to-the-right
+ * @function
+ * @returns {string} Returns the HTML code for the footer
+ */
 function createNavigation() {
   let avatar = setAvatar();
   let logo = getLogo();
@@ -67,6 +81,10 @@ function createNavigation() {
   return newNav;
 }
 
+/**
+ * The function adds actionlisteners to the HTML elements
+ * @function
+ */
 function addListeners() {
   sleep(1000).then(() => {
     document.getElementById('search').addEventListener('search', updatesearch);
@@ -79,9 +97,10 @@ function addListeners() {
   });
 }
 
-//https://www.freepik.com/free-vector/hand-drawn-different-people-icons-pack_17893869.htm#page=3&query=avatar&position=0&from_view=keyword&track=sph&uuid=42933467-2f40-4499-a897-c0b0da3c4784
-//https://stackoverflow.com/questions/41513463/bootstrap-align-navbar-items-to-the-right
-
+/**
+ * The function adds actionlisteners to the search, and converts the search to lower case.
+ * @function
+ */
 function updatesearch() {
   location.href =
     'index.html?search=' +

@@ -46,6 +46,7 @@ especially log out listeners and ui listeners
 
 The tests are also taken from the cirriculum for the previous module, can be seen in:
 https://content.noroff.dev/workflow/intro-to-testing.html
+this is referenced as: Noroff public repository in comments and docs.
 
 There are utility functions that are taken from stackoverflow with slight modifications:
 sleep:

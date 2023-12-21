@@ -1,7 +1,19 @@
+/**
+ * The footer is taken from: https://mdbootstrap.com/docs/standard/navigation/footer/ as the initial template, then customized for the
+ * need of the website.
+ * @function
+ * @returns {string} Returns the HTML code for the footer
+ */
 export function displayFooter() {
   return createFooter();
 }
 
+/**
+ * The footer is taken from: https://mdbootstrap.com/docs/standard/navigation/footer/ as the initial template, then customized for the
+ * need of the website.
+ * @function
+ * @returns {string} Returns the HTML code for the footer
+ */
 function createFooter() {
   let footer = `
     <br>
@@ -24,5 +36,3 @@ function createFooter() {
   `;
   return footer;
 }
-
-//https://mdbootstrap.com/docs/standard/navigation/footer/

@@ -1,5 +1,11 @@
-// https://www.w3schools.com/howto/howto_js_countdown.asp
-
+/**
+ * Calculates and updates an element in the HTML to display the amount of time left before the auction expires. Updates once a second.
+ * source of code: https://www.w3schools.com/howto/howto_js_countdown.asp
+ * Code is directly copied with minor name changes.
+ * @function
+ * @param time The time in which the auction will expire (Date)
+ * @param timer The element in the HTML which we want to update with the time.
+ */
 export function getRemaingAuctionTime(time, timer) {
   var auctionOverTime = new Date(time).getTime();
 

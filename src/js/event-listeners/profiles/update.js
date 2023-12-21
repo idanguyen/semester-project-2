@@ -1,9 +1,12 @@
 import { updateProfilePicture } from '../../api/profiles/update.js';
-import { getItem } from '../../localstorage/get-item.js';
 import { saveItem } from '../../localstorage/save-item.js';
 import { setAvatar } from '../../utils/avatar.js';
 import { sleep } from '../../utils/sleep.js';
 
+/**
+ * Adds event listener to the button for editing your picture.
+ * @function
+ */
 export function editProfileRedirectListener() {
   let redirectEditBtn = document.getElementById('edit-prfl-btn');
   if (redirectEditBtn) {
@@ -11,6 +14,10 @@ export function editProfileRedirectListener() {
   }
 }
 
+/**
+ * The functionality of the update profile picture button is to redirect to the correct page.
+ * @function
+ */
 export function redirectToEditProfile() {
   try {
     location.href = 'update-profile.html';
@@ -19,6 +26,10 @@ export function redirectToEditProfile() {
   }
 }
 
+/**
+ * Adds event listener to the confirm button when you press it to update the picture.
+ * @function
+ */
 export async function updatePictureListener() {
   let confirmBtn = document.getElementById('confirm-change-btn');
   if (confirmBtn) {
@@ -26,18 +37,15 @@ export async function updatePictureListener() {
   }
 }
 
-//update error
+/**
+ * The function updates the profile picture with the value from the image url input.
+ * @function
+ */
 export async function updatePicture() {
   const image = document.getElementById('img-url-upd').value;
   try {
-    console.log(image);
     let response = await updateProfilePicture(image);
-    let profile = getItem('profile');
-    console.log(profile);
-    console.log(response);
-
     saveItem('profile', response);
-    console.log(profile.avatar);
     setAvatar();
     sleep(500);
     location.reload();

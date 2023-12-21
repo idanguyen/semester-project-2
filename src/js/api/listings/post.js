@@ -1,8 +1,12 @@
 import { apiBase } from '../api-base.js';
 import { headers } from '../headers.js';
-import { stringCompare } from '../../utils/strings.js';
 import { getParameter } from '../../utils/parameter-management.js';
 
+/**
+ * Posts a listing with the information gathered from the create-listing page.
+ * @function postListing
+ * @returns {JSON} Returns specific listing in JSON format
+ */
 export async function postListing() {
   let title = document.getElementById('title-cr-lst').value;
   let description = document.getElementById('description-cr-lst').value;
@@ -33,8 +37,11 @@ export async function postListing() {
   throw new Error(response.statusText);
 }
 
-//https://images.pexels.com/photos/18939486/pexels-photo-18939486/free-photo-of-flowers.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load
-
+/**
+ * Posts a bid on a listing with the amount the user is willing to pay for the item.
+ * @function bid
+ * @returns {JSON} Returns specific listing in JSON format
+ */
 export async function bid() {
   let amount = Number(document.getElementById('bid-amount').value);
   let id = getParameter('listing');
@@ -52,7 +59,6 @@ export async function bid() {
 
     return lisitng;
   }
-  //let error = document.getElementById('error-bids-text');
   let error = await response.json();
   document.getElementById('error-bids-text').innerHTML =
     error.errors[0].message;

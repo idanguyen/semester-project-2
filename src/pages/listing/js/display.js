@@ -1,16 +1,22 @@
-import { getParameter } from '../../../js/utils/parameter-management.js';
 import { getListing } from '../../../js/api/listings/get.js';
 import { sleep } from '../../../js/utils/sleep.js';
 import { bid } from '../../../js/api/listings/post.js';
 import { deleteListing } from '../../../js/api/listings/delete.js';
 import { isLoggedIn } from '../../../js/localstorage/state.js';
 import { getItem } from '../../../js/localstorage/get-item.js';
-import { stringCompare } from '../../../js/utils/strings.js';
-import { createImage } from '../../../js/utils/image.js';
-import { getRemaingAuctionTime } from '../../../js/utils/time.js';
+import {
+  getRemaingAuctionTime,
+  createImage,
+  stringCompare,
+  getParameter,
+} from '../../../js/utils/index.js';
 
 let showBidsYN = false;
 
+/**
+ * The function delets a post and relocates you back to the main page.
+ * @function
+ */
 async function deleteFunction() {
   let id = getParameter('listing');
   deleteListing(id);
@@ -19,12 +25,21 @@ async function deleteFunction() {
   });
 }
 
+/**
+ * The function toggles the show bid history.
+ * @function
+ */
 async function showBids() {
   showBidsYN = !showBidsYN;
   document.querySelector('.listingContainer').innerHTML =
     await displayListing();
 }
 
+/**
+ * Returns true or false depending if you are the owner of the listing.
+ * @function
+ * @returns boolean
+ */
 function checkOwner(listingOwner) {
   let owner = listingOwner.seller.name;
   if (stringCompare(owner, getItem('profile').name) === 0) {
@@ -34,6 +49,11 @@ function checkOwner(listingOwner) {
   }
 }
 
+/**
+ * Creates the card for the listing element and displys it.
+ * @function
+ * @returns HTML element
+ */
 export async function displayListing() {
   let card = '';
   let id = getParameter('listing');
@@ -50,6 +70,15 @@ export async function displayListing() {
   return card;
 }
 
+/**
+ * Creates the card for the listing. Checks different options to see whether to add bids section
+ * if logged in and a delete button if you are the owner of the listing.
+ * Source: https://mdbootstrap.com/docs/standard/extended/product-cards/
+ * @function
+ * @param isOwner boolean
+ * @param listing listing to display
+ * @returns HTML string
+ */
 function createListing(listing, isOwner) {
   let cost = 0;
   let image = createImage(listing.media[0]);
@@ -165,6 +194,10 @@ function createListing(listing, isOwner) {
   return displayListings;
 }
 
+/**
+ * The function adds actionlisteners to the HTML elements
+ * @function
+ */
 function addListeners(isOwner) {
   sleep(500).then(() => {
     document.getElementById('bid-btn').addEventListener('click', bid);
@@ -179,5 +212,3 @@ function addListeners(isOwner) {
     }
   });
 }
-
-//https://mdbootstrap.com/docs/standard/extended/product-cards/

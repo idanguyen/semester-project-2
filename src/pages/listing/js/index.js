@@ -1,5 +1,4 @@
-import { displayHeader } from '../../common/js/header.js';
-import { displayFooter } from '../../common/js/footer.js';
+import { displayHeader, displayFooter } from '../../common/js/index.js';
 import { displayListing } from './display.js';
 import { updateLoginHTML } from '../../../js/localstorage/state.js';
 

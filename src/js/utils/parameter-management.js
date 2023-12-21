@@ -1,7 +1,7 @@
 let inputParameter = '';
 
 /**
- * Get the parameter from the URI.
+ * Get the parameter from the URI. This is used from many different projects of mine throughout the course.
  * @function
  * @param {string} parameter - the value in the URI that you want to extract "?parameter=".
  */

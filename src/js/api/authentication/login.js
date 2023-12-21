@@ -3,9 +3,9 @@ import { headers } from '../headers.js';
 import { saveItem } from '../../localstorage/save-item.js';
 
 /**
- * Get a auction listsing from the auction site.
+ * This is from Noroff public repository. Use to login to the user
  * This does not require any authenication to view.
- * @function
+ * @function login
  * @param {string} id - The id of the listing wanted
  * @param {string} flag - add flag for more details, seller or bids.
  * @returns {JSON} Returns specific listing in JSON format
@@ -24,7 +24,9 @@ export async function login(email, password) {
     saveItem('profile', profile);
     return profile;
   }
-
   throw new Error(response.statusText);
 }
-// taken from https://github.com/idanguyen/social-media-client/blob/master/src/js/api/auth/login.js
+
+/* Source taken from https://github.com/idanguyen/social-media-client/blob/master/src/js/api/auth/login.js
+ * This was learned from the previous task and copied to use for my project. It is a copy to speed development and it applies to this project well.
+ */

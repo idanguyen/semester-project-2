@@ -4,7 +4,7 @@ import { getItem } from '../../localstorage/get-item.js';
 
 /**
  * Update your profile picture.
- * This requires authenication to view.
+ * This requires authenication to use.
  * @function
  * @param {string} avatar - A string with a link to a picture.
  * @returns {[JSON]} Returns all listings in JSON format in an array

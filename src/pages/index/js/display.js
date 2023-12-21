@@ -1,15 +1,22 @@
 import { getListings } from '../../../js/api/listings/get.js';
 import { sleep } from '../../../js/utils/sleep.js';
 import { isLoggedIn } from '../../../js/localstorage/state.js';
-import { createImage } from '../../../js/utils/image.js';
-import { getRemaingAuctionTime } from '../../../js/utils/time.js';
-import { getParameter } from '../../../js/utils/parameter-management.js';
-import { checkTitle } from '../../../js/utils/card.js';
+import {
+  createImage,
+  getRemaingAuctionTime,
+  getParameter,
+  checkTitle,
+} from '../../../js/utils/index.js';
 
 let index = 0;
 let listingsContainer = document.querySelector('.listingsContainer');
 let listings = await getListingsForDisplay();
 
+/**
+ * Gets the initial listings to display with user and search taken into account.
+ * @function
+ * @returns listings to display.
+ */
 async function getListingsForDisplay() {
   let search = '';
   if (getParameter('search')) {
@@ -27,6 +34,12 @@ async function getListingsForDisplay() {
   return listingList;
 }
 
+/**
+ * Displays the listings with the proper amount
+ * @function
+ * @param displayAmount The number of cards to display.
+ * @returns HTML for a card.
+ */
 export async function displayListings(displayAmount) {
   isLoggedIn();
   index = displayAmount;
@@ -54,6 +67,13 @@ export async function displayListings(displayAmount) {
   return cards;
 }
 
+/**
+ * The function creates a card to display in the main page
+ * Source: https://mdbootstrap.com/docs/standard/extended/product-cards/ Card design taken from here.
+ * @function
+ * @param listing The listing to create a card for.
+ * @returns HTML for a card.
+ */
 function createCard(listing) {
   let cost = 0;
   console.log(listing);
@@ -86,6 +106,10 @@ function createCard(listing) {
   return card;
 }
 
+/**
+ * The function adds actionlisteners to the HTML elements
+ * @function
+ */
 function addListeners() {
   sleep(500).then(() => {
     document
@@ -94,6 +118,10 @@ function addListeners() {
   });
 }
 
+/**
+ * The function loads more listings to be seen other than just the initial 8
+ * @function
+ */
 async function loadMore() {
   updateDisplay('loadMore');
   listingsContainer.innerHTML = await displayListings(index);
@@ -102,6 +130,11 @@ async function loadMore() {
   }
 }
 
+/**
+ * The function loads the listings you want to display
+ * @function
+ * @param change The flag to change.
+ */
 async function updateDisplay(change) {
   switch (change) {
     case 'loadMore': {
@@ -115,6 +148,11 @@ async function updateDisplay(change) {
   }
 }
 
+/**
+ * The function figures out how many listings to display
+ * @function
+ * @param amount The amount of listings.
+ */
 function checkRange(amount) {
   if (amount < 8) {
     index = 8;

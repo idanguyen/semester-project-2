@@ -1,6 +1,12 @@
 import { goToRegisterPageListener } from '../../../js/event-listeners/authentication/register.js';
 import { loginUserListener } from '../../../js/event-listeners/authentication/login.js';
 
+/**
+ * The function adds actionlisteners to the HTML elements. This is the same as for javascript login form for my social media client.
+ * Things have been switched to accomodate the new site.
+ * @function
+ * @returns {string} Returns the HTML code to display the login form.
+ */
 export async function displayLogin() {
   let display = `
   <section class=" h-100 gradient-custom-2">
@@ -38,7 +44,7 @@ export async function displayLogin() {
               />
             </div>
             <div class="input-group mb-5 d-flex justify-content-between">
-              <p id="error"></p>
+              <p id="error-lgn" ></p>
             </div>
             <div class="input-group mb-3">
               <button
@@ -68,6 +74,10 @@ export async function displayLogin() {
   return display;
 }
 
+/**
+ * The function adds actionlisteners to the HTML elements
+ * @function
+ */
 function addListeners() {
   window.addEventListener('DOMContentLoaded', (event) => {
     loginUserListener();

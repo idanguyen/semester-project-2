@@ -2,12 +2,10 @@ import { apiBase } from '../api-base.js';
 import { headers } from '../headers.js';
 import { getItem } from '../../localstorage/get-item.js';
 
-//legge til flag
-
 /**
  * Get your profile from the auction site.
  * This requires authenication to view.
- * @function
+ * @function getProfile
  * @param flag - If you want to see the listings of a profile, you need to send this flag.
  * @returns {[JSON]} Returns all listings in JSON format in an array
  */

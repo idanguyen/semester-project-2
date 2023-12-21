@@ -7,8 +7,12 @@ import {
 } from '../../../js/event-listeners/profiles/update.js';
 import { createImage } from '../../../js/utils/image.js';
 
-//https://mdbootstrap.com/docs/standard/extended/profiles/
-
+/**
+ * This displays the profile screen of whoever is logged in. If you are not logged in you are redirected to the login page.
+ * Source: The display is inspired from: https://mdbootstrap.com/docs/standard/extended/profiles/
+ * @function
+ * @returns {string} HTML element for the displayContainer.
+ */
 export async function displayProfile() {
   if (isLoggedIn()) {
     let returnedHTML = await loggedInDisplay();
@@ -19,6 +23,13 @@ export async function displayProfile() {
   }
 }
 
+/**
+ * The function creates an image or gets the correct image for the media listing.
+ * @function
+ * @param {JSON} listings the user listings
+ * @param {JSON} index the index you want to check.
+ * @returns {string} the image in a html element.
+ */
 function getMedia(listings, index) {
   let image = listings[listings.length - index].media;
   if (image.length === 0) {
@@ -27,6 +38,12 @@ function getMedia(listings, index) {
   return `<img src="${image}" alt="image 1" class="w-100 "></img>`;
 }
 
+/**
+ * This displays the profile screen of whoever is logged in.
+ * Source: The display is inspired from: https://mdbootstrap.com/docs/standard/extended/profiles/
+ * @function
+ * @returns {string} HTML element for the displayContainer.
+ */
 async function loggedInDisplay() {
   let profile = await getProfile();
   let avatar = setAvatar();
@@ -38,8 +55,8 @@ async function loggedInDisplay() {
       <div class="col col-lg-9 col-xl-7">
         <div class="card">
           <div class="rounded-top text-white d-flex flex-row" style="background-color: #000; height:200px;">
-            <div class="ms-4 mt-5 d-flex flex-column" style="width: 150px;">
-              <img src="${avatar}"
+            <div class="img-avatar ms-4 mt-5 d-flex flex-column" style="width: 150px;">
+              <img class="img-avatar" src="${avatar}"
                 alt="${profile.name}" class="img-fluid img-thumbnail mt-4 mb-2"
                 style="width: 150px; z-index: 1">
               
@@ -90,12 +107,21 @@ async function loggedInDisplay() {
   return display;
 }
 
+/**
+ * The function adds actionlisteners to the HTML elements
+ * @function
+ */
 function addListeners() {
   window.addEventListener('DOMContentLoaded', (event) => {
     editProfileRedirectListener();
   });
 }
 
+/**
+ * The function creates a HTML code snippet to display recent listings of the user.
+ * @function
+ * @param {JSON} listings the 4 or less most recent user listings
+ */
 function addRecentListings(listings) {
   let length = listings.length;
   let image = './src/pages/common/images/standard-listing.jpeg';

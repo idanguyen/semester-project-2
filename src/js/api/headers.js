@@ -15,4 +15,6 @@ export const headers = (contentType) => {
   return headers;
 };
 
-// taken from https://github.com/idanguyen/social-media-client/blob/master/src/js/api/headers.js
+/** Source taken from https://github.com/idanguyen/social-media-client/blob/master/src/js/api/headers.js
+ *  This was used to speed up development and it creates the headers for every API call
+ * */

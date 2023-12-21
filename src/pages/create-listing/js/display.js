@@ -2,6 +2,11 @@ import { postListing } from '../../../js/api/listings/post.js';
 import { isLoggedIn } from '../../../js/localstorage/state.js';
 import { sleep } from '../../../js/utils/sleep.js';
 
+/**
+ * The function creates the HTML template to make a listing.
+ * @function
+ * @returns {string} returns the HTML code in order to create a listing
+ */
 export async function displayCreateListing() {
   let loginStatus = isLoggedIn();
   if (loginStatus) {
@@ -69,7 +74,7 @@ export async function displayCreateListing() {
                 id="endsyear-cr-lst"
                 name="endsyear"
                 class="form-control form-control-lg bg-light fs-6"
-                placeholder="Ends At Year (2023-XXXX)"
+                placeholder="Ends At Year (Maximum 1 year)"
                 required="required"
               />
             </div>
@@ -117,8 +122,12 @@ export async function displayCreateListing() {
   }
 }
 
+/**
+ * The function adds actionlisteners to the HTML elements
+ * @function
+ */
 function addListeners() {
-  sleep(1000).then(() => {
+  sleep(500).then(() => {
     document
       .getElementById('register-listing-btn')
       .addEventListener('click', postListing);

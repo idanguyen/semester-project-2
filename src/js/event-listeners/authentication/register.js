@@ -1,6 +1,10 @@
 import { register } from '../../api/authentication/register.js';
 import { login } from '../../api/authentication/login.js';
 
+/**
+ * This listens to the register button on the login page and adds the event to go to register on it.
+ * @function
+ */
 export function goToRegisterPageListener() {
   let registerBtn = document.getElementById('go-to-register-btn');
   if (registerBtn) {
@@ -8,6 +12,10 @@ export function goToRegisterPageListener() {
   }
 }
 
+/**
+ * This redirects the user to the register page.
+ * @function
+ */
 function goToRegister() {
   try {
     location.href = 'register.html';
@@ -16,6 +24,10 @@ function goToRegister() {
   }
 }
 
+/**
+ * This is a button listener for when the register button is pressed.
+ * @function
+ */
 export async function registerUserListener() {
   let registerBtn = document.getElementById('register-btn');
   if (registerBtn) {
@@ -23,7 +35,10 @@ export async function registerUserListener() {
   }
 }
 
-//update error
+/**
+ * This is the functionality to register a user. It checks the input elements from register.html and tries to create a user.
+ * @function
+ */
 async function registerUser() {
   const email = document.getElementById('email-reg').value;
   const name = document.getElementById('username-reg').value;
@@ -31,14 +46,14 @@ async function registerUser() {
 
   try {
     await register(email, name, password);
-  } catch {
-    return alert('There was a problem creating your account');
+  } catch (error) {
+    document.getElementById('error-reg').innerHTML = error;
   }
 
   try {
     await login(email, password);
     location.reload();
-  } catch {
-    return alert('There was a problem logging into your account');
+  } catch (error) {
+    return alert('There was a problem logging into your new account');
   }
 }

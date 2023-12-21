@@ -4,11 +4,15 @@ import { setAvatar } from '../../../js/utils/avatar.js';
 import { updatePicture } from '../../../js/event-listeners/profiles/update.js';
 import { sleep } from '../../../js/utils/sleep.js';
 
-//https://mdbootstrap.com/docs/standard/extended/profiles/
-
+/**
+ * Displays the pane to change your profile picture.
+ * Source: The display is inspired from: https://mdbootstrap.com/docs/standard/extended/profiles/
+ * @function
+ * @returns {string} HTML element for the displayContainer.
+ */
 export async function displayProfile() {
   if (isLoggedIn()) {
-    let returnedHTML = await loggedInDisplay();
+    let returnedHTML = await updateDisplay();
 
     return returnedHTML;
   } else {
@@ -16,7 +20,13 @@ export async function displayProfile() {
   }
 }
 
-async function loggedInDisplay() {
+/**
+ * Creates the pane to change your profile picture.
+ * Source: The display is inspired from: https://mdbootstrap.com/docs/standard/extended/profiles/
+ * @function
+ * @returns {string} HTML element for the displayContainer.
+ */
+async function updateDisplay() {
   let profile = await getProfile();
   let avatar = setAvatar();
   let display = `
@@ -64,6 +74,10 @@ async function loggedInDisplay() {
   return display;
 }
 
+/**
+ * The function adds actionlisteners to the HTML elements
+ * @function
+ */
 function addListeners() {
   sleep(1000).then(() => {
     document
