@@ -44,7 +44,9 @@ export async function displayListings(displayAmount) {
   isLoggedIn();
   index = displayAmount;
   let cards = `
-
+  <div class="d-flex justify-content-center">
+    <h1 class="">Browse the Auction</h1>
+  </div>
   <div class="container mt-3 mb-3">
   <div class="row">`;
   for (let i = index - displayAmount; i < index; i++) {

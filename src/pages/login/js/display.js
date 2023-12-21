@@ -11,7 +11,10 @@ export async function displayLogin() {
   let display = `
   <section class=" h-100 gradient-custom-2">
   <div class="container d-flex justify-content-center align-items-center min-vh-100">
+  
     <div class="row">
+      <h1>Login</h1>
+
       <div class="col-md-12 justify-content-center">
      
       <div class="row border rounded-5 p-3 shadow">

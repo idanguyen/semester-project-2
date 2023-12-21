@@ -14,11 +14,7 @@ export async function displayCreateListing() {
   <div class="container d-flex justify-content-center align-items-center min-vh-100">
     <div class="row">
       <div class="col-md-12">
-        <div
-          class="fs-1 text-center"
-        >
-          Create Listing
-        </div>
+        <h1>Create Listing</h1>
       </div>
       <div class="row border rounded-5 p-3 shadow">
         <div

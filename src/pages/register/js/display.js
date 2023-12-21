@@ -20,12 +20,9 @@ async function createCreateUser() {
   let display = `
   <div class="container d-flex justify-content-center align-items-center min-vh-100">
     <div class="row">
+          <h1>Sign Up</h1>
+
       <div class="col-md-12">
-        <div
-          class="fs-1 text-center"
-        >
-          Sign Up
-        </div>
       </div>
       <div class="row border rounded-5 p-3 shadow">
         <div

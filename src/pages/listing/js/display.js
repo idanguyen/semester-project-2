@@ -107,7 +107,7 @@ function createListing(listing, isOwner) {
           </div>
           <div class="card-body pb-0">
             <div class="d-flex justify-content-center">
-              <h2>${listing.title}</h2>
+              <h1>${listing.title}</h1>
             </div>
              <br>
 
@@ -125,7 +125,7 @@ function createListing(listing, isOwner) {
 
           <div class="card-body pb-0">
             <div class="d-flex justify-content-center">
-              <h3>${cost} NOK</h3>
+              <h2>${cost} NOK</h2>
             </div>
             <div class="d-flex justify-content-end">
               <p class="small text-muted just">${listing.bids.length} Bids</p>

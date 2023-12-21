@@ -6,6 +6,21 @@ $primary: #005f73;
   cursor: pointer;
 }
 
+body {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 700;
+}
+
 img {
   height: 100%;
   width: 100%;
@@ -85,7 +100,7 @@ div [class^='col-'] {
   color: white;
 }
 
-// https://mdbootstrap.com/docs/standard/extended/profiles/
+// https://mdbootstrap.com/docs/standard/extended/profiles/ For backgrounds and gradients, but decided to keep it white.
 .gradient-custom-2 {
   /* fallback for old browsers */
   background: #fff;

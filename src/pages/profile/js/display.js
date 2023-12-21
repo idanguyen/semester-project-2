@@ -50,6 +50,9 @@ async function loggedInDisplay() {
   let listings = await getProfile('listings');
   let display = `
 <section class="h-100 gradient-custom-2">
+<div class="d-flex justify-content-center">
+    <h1 class="">My Profile</h1>
+  </div>
   <div class="container py-5 h-100">
     <div class="row d-flex justify-content-center align-items-center h-100">
       <div class="col col-lg-9 col-xl-7">

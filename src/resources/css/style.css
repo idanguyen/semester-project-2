@@ -3,6 +3,18 @@
   cursor: pointer;
 }
 
+body {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+}
+
+h1, .h1, h2, .h2, h3, .h3, h4, .h4 {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 700;
+}
+
 img {
   height: 100%;
   width: 100%;

@@ -72,7 +72,7 @@ function createNavigation() {
 
   newNav += `
       <div class="img-avatar">
-        <img  src="${avatar}" alt="stock-profile" onclick="window.location='profile.html'" class="img-avatar rounded-circle">
+        <img src="${avatar}" alt="stock-profile" onclick="window.location='profile.html'" class="img-avatar rounded-circle cursor-hand">
       </div>
     </div>
   </div>
