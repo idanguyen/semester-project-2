@@ -1,35 +1,58 @@
-# semester-project-2
+# Everything Auction
+![image](https://user-images.githubusercontent.com/52622303/164316813-4b12d99f-aeb7-4069-85cf-e72b3a50ac99.png)
+
+## Description
  Take skills learned over the past three semesters and create an auction website for Noroff.
  The javascript has been the main focus trying to implement best practice and ES6.
 
-# installation
+## Getting Started
 
-1. npm ci
+### Installing
 
-# Sources
+1. Clone the repo:
+
+```bash
+git clone https://github.com/idanguyen/semester-project-2.git
+```
+
+2. Install the dependencies:
+
+```
+npm install
+```
+
+### Running
+
+To run the app, run the following commands:
+
+```bash
+npm run start
+```
+
+## Sources
 There are sources taken from everywhere, code has it referenced in comments, here is an overview:
 
 Cards from bootstrap in index, profile, login, listings are all taken from free sources then adapted to fit the needs of the website:
-https://freefrontend.com/bootstrap-cards/
-https://mdbootstrap.com/docs/standard/navigation/footer/
-https://stackoverflow.com/questions/41513463/bootstrap-align-navbar-items-to-the-right
-https://mdbootstrap.com/docs/standard/extended/product-cards/
-https://mdbootstrap.com/docs/standard/extended/profiles/ 
+- https://freefrontend.com/bootstrap-cards/
+- https://mdbootstrap.com/docs/standard/navigation/footer/
+- https://stackoverflow.com/questions/41513463/bootstrap-align-navbar-items-to-the-right
+- https://mdbootstrap.com/docs/standard/extended/product-cards/
+- https://mdbootstrap.com/docs/standard/extended/profiles/ 
 
 
 It is also referenced in the styles.scss where custom code directly taken from source is used. Some colours have been changed for the backgrounds to suit the needs of the project.
 
 These links also contain links to footer and headers boostrap sources from online.
 
-## code
+### Code
 
 There are code snippets taken from the social media client from Noroff with slight modifications:
 https://github.com/NoroffFEU/social-media-client
 
 some direct examples here are:
-api/headers.js
-api/api-base.js
-api/login
+- api/headers.js
+- api/api-base.js
+- api/login
 
 And mostly everything is inspired in API
 
@@ -64,22 +87,29 @@ It is also tried to follow a javascript structure that fits with ES6
 ## images free from internet
 Images are taken from free sources on the internet. If anyone has any complaints, please let me know.
 
-# Collaborate
+## Collaborate
 
 Feel free to add your own code and make a pull request
 
-# Style guide
+## Style guide
 
 1. The project follows ES6
 2. Use Bootstrap 5
 3. Follow The pre-commit, and styling from package.json
 4. Look at the Style Sheet in Figma
 
-# Special thanks
+## Special thanks
 
 Thanks to my teachers and fellow students for following through these three semesters.
 
-# Links
+## Contact
+
+[Email](ida_nguyen@outlook.com)
+
+[My LinkedIn page](https://www.linkedin.com/in/ida-nguyen-441709187)
+
+
+## Links
 Trello:
 https://trello.com/invite/b/K8ITzvcI/ATTI5059c7e7f0c6957248698cb961519ba4286AE08F/semester-project-2
 
