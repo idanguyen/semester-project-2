@@ -1,5 +1,5 @@
 # Everything Auction
-![image](https://user-images.githubusercontent.com/52622303/164316813-4b12d99f-aeb7-4069-85cf-e72b3a50ac99.png)
+![image](src/pages/common/images/ea-img.jpg)
 
 ## Description
  Take skills learned over the past three semesters and create an auction website for Noroff.
